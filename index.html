@@ -1,39 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de senha</title>
+    <title>Gerador de Senhas</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <section class="conteudo">
-        <div class="conteudo-titulo">
-            <img src="unlock.svg" alt="cadeado fechado">
-            <h2 class="titulo-principal">Gerador de senhas</h2>
-            <h3 class="titulo-secundario">Gere instantaneamente uma senha aleatória e segura</h3>
+    <div class="container">
+        <header>
+            <div class="icon">🔒</div>
+            <h1>Gerador de senhas</h1>
+            <p>Gere instantaneamente uma senha aleatória e segura</p>
+        </header>
+
+        <div class="output-container">
+            <span id="password-display">Clique em Gerar</span>
+            <button id="btn-copy" title="Copiar senha">📋</button>
         </div>
-        <div class="conteudo-senha">
-            <label for="senha">Senha</label>
-            <input name="senha" type="text" id="campo-senha">
-        </div>
-        <div class="parametro">
-            <h3 class="parametro-titulo">Personalize sua senha</h3>
-            <div class="parametro-coluna__senha">
-                <div class="parametro-senha">
-                    <h4 class="parametro-senha__titulo">Número de caracteres</h4>
-                </div>                
-                <div class="parametro-senha">
-                    <h4 class="parametro-senha__titulo">Características da senha</h4>
+
+        <div class="settings-container">
+            <h2>Personalize sua senha</h2>
+           
+            <div class="grid-settings">
+                <div class="col">
+                    <h3>Número de caracteres</h3>
+                    <div class="range-container">
+                        <input type="range" id="length-slider" min="6" max="32" value="12">
+                        <span id="length-val">12</span>
+                    </div>
                 </div>
-                <div class="parametro-senha">
-                    <h4 class="parametro-senha__titulo">Força da senha</h4>
+
+                <div class="col">
+                    <h3>Características da senha</h3>
+                    <label><input type="checkbox" id="chk-uppercase" checked> Maiúsculas (A-Z)</label>
+                    <label><input type="checkbox" id="chk-lowercase" checked> Minúsculas (a-z)</label>
+                    <label><input type="checkbox" id="chk-numbers" checked> Números (0-9)</label>
+                    <label><input type="checkbox" id="chk-symbols" checked> Símbolos (!@#$)</label>
+                </div>
+
+                <div class="col">
+                    <h3>Força da senha</h3>
+                    <div class="strength-meter">
+                        <div id="strength-bar"></div>
+                    </div>
+                    <span id="strength-text">Fraca</span>
                 </div>
             </div>
-        </div>
-    </section>
-</body>
 
+            <button id="btn-generate">Gerar Senha</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
